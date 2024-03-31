@@ -12,8 +12,17 @@ environment {
             steps {
                 sh 'mvn clean deploy'
             }
-
-
         }
-    }
+        stage ("SonarQube analysis") {
+            environment { 
+                scannerHome = tool 'dwp-sonarqube-scanner-name'
+            }
+            steps {
+                withSonarQubeEnv('dwp-sonarqube-server-server') {
+                    sh "${scannerHome}/bin/sonar-scanner"
+                }
+            }
+               
+        }
+    }   
 }
