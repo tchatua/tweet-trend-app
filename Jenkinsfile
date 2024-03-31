@@ -4,12 +4,21 @@ pipeline {
             label 'maven-label'
         }
     }
-
+environment {
+    PATH = "/opt/apache-maven-3.9.6/bin:$PATH"
+}
     stages {
-        stage('git clone') {
+        // stage('clone-code') {
+        //     steps {
+        //         git branch: 'develop', url: 'https://github.com/tchatua/e01_micro-services-admin.git'
+        //     }
+        // }
+        stage ("build") {
             steps {
-                git branch: 'develop', url: 'https://github.com/tchatua/e01_micro-services-admin.git'
+                sh 'mvn clean deploy'
             }
+
+
         }
     }
 }
