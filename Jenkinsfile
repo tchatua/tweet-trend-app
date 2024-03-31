@@ -15,7 +15,7 @@ environment {
         }
         stage ("SonarQube analysis") {
             tools {
-                jdk 'jdk-17'
+                jdk 'java-jdk-17'
             }
             environment { 
                 scannerHome = tool 'dwp-sonarqube-scanner-name'
