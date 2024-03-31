@@ -14,6 +14,9 @@ environment {
             }
         }
         stage ("SonarQube analysis") {
+            tools {
+                jdk 'jdk-17'
+            }
             environment { 
                 scannerHome = tool 'dwp-sonarqube-scanner-name'
             }
@@ -22,7 +25,6 @@ environment {
                     sh "${scannerHome}/bin/sonar-scanner"
                 }
             }
-               
         }
     }   
 }
