@@ -10,9 +10,9 @@ environment {
 }
     stages {
         stage ("build") {
-            tools {
-                jdk 'java-jdk-11'
-            }
+            // tools {
+            //     jdk 'java-jdk-11'
+            // }
             steps {
                 sh 'mvn clean deploy'
             }
