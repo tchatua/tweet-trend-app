@@ -14,19 +14,32 @@ sudo yum install java-11-openjdk-devel
 /usr/lib/jvm/java-11-openjdk-11.0.22.0.7-1.amzn2.0.1.x86_64/bin/java
 
 
+```yml
+
+def server = Artifactory.newServer url: 'artifactory-url', credentialsId: 'ccrreeddeennttiiaall'
+
+// If Jenkins is configured to use an http proxy, you can bypass the proxy when using this Artifactory server:  
+server.bypassProxy = true
+// If you're using username and password:
+server.username = 'new-user-name'
+server.password = 'new-password'
+// If you're using Credentials ID:
+server.credentialsId = 'ccrreeddeennttiiaall'
+// Configure the connection timeout (in seconds).
+// The default value (if not configured) is 300 seconds:  
+server.connection.timeout = 300
+
+def uploadSpec = """{
+  "files": [
+    {
+      "pattern": "bazinga/*froggy*.zip",
+      "target": "bazinga-repo/froggy-files/"
+    }
+ ]
+}"""
+server.upload spec: uploadSpec 
 
 
+```
 
 
-Folder name: j07_Multi)Branch_Scan_Webhook_Trigger_JOB
->> j02 Simple Pipeline job
->>>>> Add agent node
->>>>> git clone stage added on my Pipeline: https://github.com/tchatua/e01_micro-services-admin.git (branch develop)
->>>>> git clone stage modify : Pipeline script from SCM
->>>>> Add GitHub Credential
->>>>> Build Stage added
->>>>> Create multi branch Pipeline Job
->>>>> Enable webhook
-
-
- 
