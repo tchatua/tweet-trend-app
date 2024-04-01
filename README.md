@@ -5,6 +5,19 @@ Test contains test cases.
 
 It also contains pom.xml which has all dependencies and artifact name and version
 
+
+## Install Java 11 on Amazon Linux 2
+sudo amazon-linux-extras enable java-openjdk11
+sudo yum install java-11-openjdk-devel
+
+
+/usr/lib/jvm/java-11-openjdk-11.0.22.0.7-1.amzn2.0.1.x86_64/bin/java
+
+
+
+
+
+
 Folder name: j07_Multi)Branch_Scan_Webhook_Trigger_JOB
 >> j02 Simple Pipeline job
 >>>>> Add agent node
@@ -14,3 +27,6 @@ Folder name: j07_Multi)Branch_Scan_Webhook_Trigger_JOB
 >>>>> Build Stage added
 >>>>> Create multi branch Pipeline Job
 >>>>> Enable webhook
+
+
+ 
