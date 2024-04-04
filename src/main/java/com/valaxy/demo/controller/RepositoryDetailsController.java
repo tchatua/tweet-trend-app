@@ -34,7 +34,7 @@ public class RepositoryDetailsController {
 	public String getRepos() throws IOException {
 		GitHub github = new GitHubBuilder().withPassword("valaxytech@gmail.com", "XXXXXXXX").build();
 		GHRepositorySearchBuilder builder = github.searchRepositories();
-		return "Greetings from Valaxy Technologies";
+		return "I fear not the man who has practiced 10,000 kicks once, but I fear the man who has practiced one kick 10,000 times. Bruce Lee";
 	}
 
 	@GetMapping("/trends")
