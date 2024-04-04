@@ -60,5 +60,13 @@ environment {
                 }
             }
         }
+        stage ('Deploy app on K8s through deploy.sh file') {
+            steps {
+                script {
+                    sh './Kubernetes/a05_deploy.sh'
+                }
+            }
+
+        }
     }
 }
