@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: goumgue-dwp-deployment
+  namespace: dev # Namespace name
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app:  goumgue-dwp
+  template:
+    metadata:
+      labels:
+        app:  goumgue-dwp
+    spec:
+      imagePullSecrets:
+      - name: jfrogdockercredential
+      containers:
+      - name:  goumgue-dwp
+        image: goumgue81.jfrog.io/goumgue-docker-local/appagt:2.1.2
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8000
+        env:
+        - name: CONSUMER_KEY
+          value: "G6lmKhsi0V9TvXt6oKTfjRBCr"
+        - name: CONSUMER_SECRET
+          value: "bEyDk8X0p8SQd4376eoNV4nH8To22sHcJOoFt0ZqOKS37hhI4q"
+        - name: ACCESS_TOKEN
+          value: "9703354-52rXHD6EeOQeYyhtNz1w8UVOgbcLcgOo4O7MB6WV3"
+        - name: ACCESS_TOKEN_SECRET
+          value: "zBThlZDEp8qnu7NwwdHNth8eg3Rf9zqbvUEFUTaZtN2SF"
