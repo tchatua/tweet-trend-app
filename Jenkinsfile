@@ -66,7 +66,6 @@ environment {
                     sh './deploy.sh'
                 }
             }
-
         }
     }
 }
