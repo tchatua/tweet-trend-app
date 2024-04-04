@@ -39,7 +39,7 @@ environment {
                     echo '<--------------- Jar Publish Ended --------------->'  
                 }
             }   
-        }        
+        } 
         stage(" Docker Build ") {
             steps {
                 script {
@@ -57,6 +57,13 @@ environment {
                         app.push()
                     }    
                     echo '<--------------- Docker Publish Ended --------------->'  
+                }
+            }
+        }
+        stage ('Deploy app on K8s through deploy.sh file') {
+            steps {
+                script {
+                    sh './deploy.sh'
                 }
             }
         }
