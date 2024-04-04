@@ -1,6 +1,6 @@
 def registry = 'https://goumgue81.jfrog.io' 
 def imageName = 'goumgue81.jfrog.io/goumgue-docker-local/appagt'
-def version   = '2.1.2'
+def version   = '2.1.3'
 pipeline {
     agent {
         node {
