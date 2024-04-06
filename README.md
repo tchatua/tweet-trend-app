@@ -38,8 +38,6 @@ def uploadSpec = """{
  ]
 }"""
 server.upload spec: uploadSpec 
-
-
 ```
 
 
