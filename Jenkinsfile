@@ -16,7 +16,7 @@ environment {
                 sh 'mvn clean deploy'
             }
         }
-        stage("Jar Publish") {
+        stage("Jar Publish on JFrog") {
             steps {
                 script {
                     echo '<--------------- Jar Publish Started --------------->'
@@ -49,7 +49,7 @@ environment {
                 }
             }
         }
-        stage (" Docker Publish "){
+        stage (" Docker Publish on JFrog"){
             steps {
                 script {
                     echo '<--------------- Docker Publish Started --------------->'  
