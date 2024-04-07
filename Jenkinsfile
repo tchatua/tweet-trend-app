@@ -71,7 +71,7 @@ environment {
             steps {
                 script {
                     echo '<-------------------------------- Helm Deploy start -------------------------------->'
-                    sh 'helm uninstall agtapp agtapp-0.1.0.tgz'
+                    sh 'helm uninstall agtapp'
                     sh 'helm install agtapp agtapp-0.1.0.tgz'
                     echo '<-------------------------------- Helm Deploy end -------------------------------->'
                 }
