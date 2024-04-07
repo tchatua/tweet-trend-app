@@ -60,12 +60,22 @@ environment {
                 }
             }
         }
-        stage ('Deploy app on K8s through deploy.sh file') {
+        // stage ('Deploy app on K8s through deploy.sh file') {
+        //     steps {
+        //         script {
+        //             sh './deploy.sh'
+        //         }
+        //     }
+        // }
+        stage("Deploy with Helm") {
             steps {
                 script {
-                    sh './deploy.sh'
+                    echo '<-------------------------------- Helm Deploy start -------------------------------->'
+                    sh 'helm install agtapp agtapp-0.1.0.tgz'
+                    echo '<-------------------------------- Helm Deploy end -------------------------------->'
                 }
             }
+
         }
     }
 }
