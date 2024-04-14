@@ -16,7 +16,7 @@ environment {
                 sh 'mvn clean deploy'
             }
         }
-        stage("Jar Publish") {
+        stage("Jar Publish on JFrog") {
             steps {
                 script {
                     echo '<--------------- Jar Publish Started --------------->'
@@ -49,7 +49,7 @@ environment {
                 }
             }
         }
-        stage (" Docker Publish "){
+        stage (" Docker Publish on JFrog"){
             steps {
                 script {
                     echo '<--------------- Docker Publish Started --------------->'  
@@ -60,12 +60,22 @@ environment {
                 }
             }
         }
-        stage ('Deploy app on K8s through deploy.sh file') {
+        // stage ('Deploy app on K8s through deploy.sh file') {
+        //     steps {
+        //         script {
+        //             sh './deploy.sh'
+        //         }
+        //     }
+        // }
+        stage("Deploy with Helm") {
             steps {
                 script {
-                    sh './deploy.sh'
+                    echo '<-------------------------------- Helm Deploy start -------------------------------->'
+                    sh 'helm install agtapp agtapp-0.1.0.tgz'
+                    echo '<-------------------------------- Helm Deploy end -------------------------------->'
                 }
             }
+
         }
     }
 }
